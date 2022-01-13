@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-pilot',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PilotComponent implements OnInit {
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit(): void {
+  }
+
+  goBackButton(): void {
+    this.location.back();
   }
 
 }

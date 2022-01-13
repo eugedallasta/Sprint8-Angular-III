@@ -1,1 +1,21 @@
-<p>list works!</p>
+<div class="row" infinite-scroll (scrolled)="onScrollDown()">
+    <div class="col" *ngFor="let item of shipslist">
+       <div class="card">
+           <div class="card-inner">
+               <div class="header">
+                   <a [routerLink]="['/card',item.id]">
+                    <h2>nombre nave:{{item.name}}</h2> 
+                   </a>
+                   <h4 class="text-muted">modelo:{{item.model}}</h4>
+               </div>
+           </div>
+       </div>
+    </div>
+</div>
+<button
+[ngClass]="'no-hidden'" 
+*ngIf="showGoUpButton"
+class="btn btn-dark"
+(click)="onScrollTop()">
+GO UP
+</button>
