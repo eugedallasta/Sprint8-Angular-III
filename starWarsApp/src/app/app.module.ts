@@ -11,6 +11,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { PilotComponent } from './components/pilot/pilot.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     HomeComponent,
     NavBarComponent,
     LoginComponent,
-    PilotComponent
+    PilotComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

@@ -1,45 +1,26 @@
-<div class="row" *ngIf="ship$ | async as ship">
-  <div class="col">
-    <div class="card mb-3">
-      <img src="https://starwars-visualguide.com/assets/img/starships/5.jpg" class="card-img-top" alt="..." />
+<div class="row justify-content-center" *ngIf="ship$ | async as ship">
+  <div class="col-xs-12 col-sm-6 col-md-6">
+    <div class="card">
+      <img
+        src="https://starwars-visualguide.com/assets/img/starships/9.jpg"
+        class="card-img-top"
+        alt="StarShip"
+      />
       <div class="card-body">
-        <h5 class="card-title">nombre nave</h5>
-        <p class="card-text">
-          This is a wider card with supporting text below as a natural lead-in
-          to additional content. This content is a little bit longer.
-        </p>
-        <p class="card-text">
-          <small class="text-muted">Last updated 3 mins ago</small>
-        </p>
+        <h5 class="card-title">{{ ship.name }}</h5>
+        <small class="text-muted">{{ ship.created | date }}</small>
+        <br />
+        <small class="text-muted">Crew: {{ ship.crew }} people</small>
+        <br />
+        <small class="text-muted">Length: {{ ship.length }} ft</small>
+        <br />
+        <small class="text-muted">Class: {{ ship.starship_class }}</small>
+        <br>
+        <a [routerLink]="['/pilot']">Pilots</a>
       </div>
     </div>
   </div>
 </div>
-<button class="btn btn-danger" (click)="goBackButton()">Go back</button>
+<button class="btn btn-dark" (click)="goBackButton()">Go back</button>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="card">
-           <div class="card-inner">
-               <div class="header">
-                   <a [routerLink]="['/pilot']">
-                    pilotos
-                   </a>
-                   <h2>nombre nave:nave</h2> 
-                   <h4 class="text-muted">modelo:modelo</h4>
-               </div>
-           </div>
-       </div> -->

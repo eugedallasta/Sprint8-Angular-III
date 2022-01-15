@@ -17,10 +17,7 @@ export class CardComponent implements OnInit {
   constructor(private route: ActivatedRoute, private service: ServiceService, private location: Location) { }
 
   ngOnInit(): void {
-    this.route.params.pipe(take(1)).subscribe((params) => {
-      const id = params['id'];
-      this.ship$ = this.service.getShipById(id);
-    });
+    this.ship$ = this.service.getShipById('9');
   }
   // getShipDetails() {
   //   this.service.getShipById(1)
@@ -28,6 +25,11 @@ export class CardComponent implements OnInit {
   //       console.log(ship);
   //     });
   // }
+
+  // this.route.params.pipe(take(1)).subscribe((params) => {
+  //   const id = params['url'];
+  //   this.ship$ = this.service.getShipById(id);
+  // });
 
   goBackButton(): void {
     this.location.back();

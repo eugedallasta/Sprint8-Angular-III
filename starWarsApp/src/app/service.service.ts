@@ -17,8 +17,8 @@ export class ServiceService {
       `${path}/?page=${page}`);
   }
 
-  getShipById(id: number) {
-    const path = `https://swapi.dev/api/starships/${id}/`;
+  getShipById(url: string) {
+    const path = `https://swapi.dev/api/starships/${url}/`;
     return this.http.get<StarShip>(path);
   }
 }

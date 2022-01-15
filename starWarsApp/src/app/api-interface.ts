@@ -1,5 +1,4 @@
 export interface StarShip {
-    id: number;
     MGLT: string;
     cargo_capacity: string;
     consumables: string;
@@ -14,6 +13,8 @@ export interface StarShip {
     model: string;
     name: string;
     passengers: string;
+    films: string[];
+    pilots: any[];
     starship_class: string;
     url: string;
 }

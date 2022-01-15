@@ -1,3 +1,4 @@
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { PilotComponent } from './components/pilot/pilot.component';
 import { CardComponent } from './components/card/card.component';
 import { NgModule } from '@angular/core';
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'starships', component: ListComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignUpComponent },
   { path: 'card', component: CardComponent },
   { path: 'pilot', component: PilotComponent },
 ];
