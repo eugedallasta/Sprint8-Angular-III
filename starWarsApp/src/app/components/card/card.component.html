@@ -1,26 +1,29 @@
-<div class="row justify-content-center" *ngIf="ship$ | async as ship">
-  <div class="col-xs-12 col-sm-6 col-md-6">
-    <div class="card">
-      <img
-        src="https://starwars-visualguide.com/assets/img/starships/9.jpg"
-        class="card-img-top"
-        alt="StarShip"
-      />
-      <div class="card-body">
-        <h5 class="card-title">{{ ship.name }}</h5>
-        <small class="text-muted">{{ ship.created | date }}</small>
-        <br />
-        <small class="text-muted">Crew: {{ ship.crew }} people</small>
-        <br />
-        <small class="text-muted">Length: {{ ship.length }} ft</small>
-        <br />
-        <small class="text-muted">Class: {{ ship.starship_class }}</small>
-        <br>
-        <a [routerLink]="['/pilot']">Pilots</a>
+<div class="container">
+  <div class="row justify-content-center" *ngIf="ship$ | async as ship">
+    <div class="col col-xs-12 col-sm-6 col-md-6 col-lg-7 justify-content-center">
+      <div class="card" >
+        <img
+          src="https://starwars-visualguide.com/assets/img/starships/9.jpg"
+          class="card-img-top mx-auto img-fluid"
+          alt="StarShip"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ ship.name }}</h5>
+          <small class="text-muted">{{ ship.created | date }}</small>
+          <br />
+          <small class="text-muted">Crew: {{ ship.crew }} people</small>
+          <br />
+          <small class="text-muted">Length: {{ ship.length }} ft</small>
+          <br />
+          <small class="text-muted">Class: {{ ship.starship_class }}</small>
+          <br>
+          <a [routerLink]="['/pilot']">Pilots</a>
+        </div>
       </div>
+      <button class="btn btn-dark mb-5" (click)="goBackButton()">Go back</button>
     </div>
   </div>
 </div>
-<button class="btn btn-dark" (click)="goBackButton()">Go back</button>
+
 
 
