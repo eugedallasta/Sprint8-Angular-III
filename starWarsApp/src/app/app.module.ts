@@ -2,6 +2,7 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListComponent } from './components/list/list.component';
@@ -29,7 +30,10 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     AppRoutingModule,
     HttpClientModule,
     InfiniteScrollModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
+
+
   ],
   exports: [
     ListComponent,

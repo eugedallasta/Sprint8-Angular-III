@@ -17,7 +17,7 @@ export class CardComponent implements OnInit {
   constructor(private route: ActivatedRoute, private service: ServiceService, private location: Location) { }
 
   ngOnInit(): void {
-    this.ship$ = this.service.getShipById('13');
+    this.ship$ = this.service.getShipById(13);
   }
   // getShipDetails() {
   //   this.service.getShipById(1)
