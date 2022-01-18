@@ -3,7 +3,7 @@ import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ServiceService } from 'src/app/service.service';
 import { take } from 'rxjs';
-import { inject } from '@angular/core/testing';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -24,6 +24,8 @@ export class ListComponent implements OnInit {
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private service: ServiceService,
+    private route: ActivatedRoute,
+    private router: Router
 
   ) { }
 
@@ -40,6 +42,16 @@ export class ListComponent implements OnInit {
 
         console.log(results);
       });
+  }
+
+  goToDetail(url: string) {
+    console.log(url);
+    const idInUrl: any = this.service.getId(url);
+
+    if (idInUrl) {
+      const id: number = parseInt(idInUrl[0].replace('/', ''));
+      this.router.navigate(['/starships/', id]);
+    }
   }
 
   @HostListener('window:scroll', [])

@@ -18,16 +18,13 @@ export class ServiceService {
   }
 
   getShipById(id: number) {
-
     const path = `https://swapi.dev/api/starships/${id}`;
-    this.getId(path);
-
     return this.http.get<StarShip>(path);
   }
 
   getId(url: string) {
-    let regex = /(\d+)/g;
-    const id = url.match(regex);
+    let regex: RegExp = /(\d+)/g;
+    const id: RegExpMatchArray | null = url.match(regex);
     console.log(id);
   }
 }

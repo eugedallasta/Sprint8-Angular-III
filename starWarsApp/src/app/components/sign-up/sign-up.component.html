@@ -1,7 +1,7 @@
 <div class="container" >
   <div class="row">
     <div class="col col-sm-10 col-md-8 mx-auto d-block">
-      <form [formGroup]="form" (ngSubmit)="save($event)">
+      <form [formGroup]="form" novalidate (ngSubmit)="save($event)">
         <h1 class="h3 mb-3 fw-normal text-white">First time? Please sign up</h1>
 
         <div class="form-floating mb-2">
@@ -26,12 +26,18 @@
         </div>
         <div *ngIf="emailField?.errors && emailField?.touched">
           <p *ngIf="emailField?.hasError('required')">
+              <small class="text-danger">**e-mail required</small>
+          </p>
+           <p *ngIf="emailField?.hasError('pattern')">
               <small class="text-danger">**Valid e-mail required</small>
           </p>
         </div>
         <div *ngIf="passwordField?.errors && passwordField?.touched">
           <p *ngIf="passwordField?.hasError('required')">
               <small class="text-danger">**Valid password required</small>
+          </p>
+           <p *ngIf="passwordField?.hasError('pattern')">
+              <small class="text-danger">**Password requires at least 1 uppercase, 1 number and 1 special character</small>
           </p>
         </div>
         <button 

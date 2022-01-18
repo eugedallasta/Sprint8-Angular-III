@@ -49,8 +49,6 @@ export class SignUpComponent implements OnInit {
       this.form.markAllAsTouched();
     }
   }
-
-
 }
 
 

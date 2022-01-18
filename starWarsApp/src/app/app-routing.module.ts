@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'starships', component: ListComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent },
-  { path: 'card', component: CardComponent },
+  { path: 'starships/:id', component: CardComponent },
   { path: 'pilot', component: PilotComponent },
 ];
 
