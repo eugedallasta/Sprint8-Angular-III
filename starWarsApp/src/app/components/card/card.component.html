@@ -3,9 +3,9 @@
     <div class="col col-xs-12 col-sm-6 col-md-6 col-lg-7 justify-content-center">
       <div class="card" >
         <img
-          src="https://starwars-visualguide.com/assets/img/starships/9.jpg"
+          [src]=[shipImage]
           class="card-img-top mx-auto img-fluid"
-          alt="StarShip"
+          [alt]="ship.name"
         />
         <div class="card-body">
           <h5 class="card-title">{{ ship.name }}</h5>
