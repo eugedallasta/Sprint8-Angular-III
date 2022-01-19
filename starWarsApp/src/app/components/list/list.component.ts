@@ -44,12 +44,14 @@ export class ListComponent implements OnInit {
       });
   }
 
+
   goToDetail(url: string) {
     console.log(url);
-    const idInUrl: any = this.service.getId(url);
-
+    const idInUrl: RegExpMatchArray | null = url.match(/(\d+)/g);
+    console.log(idInUrl);
     if (idInUrl) {
       const id: number = parseInt(idInUrl[0].replace('/', ''));
+      console.log(id);
       this.router.navigate(['/starships/', id]);
     }
   }
@@ -77,3 +79,10 @@ export class ListComponent implements OnInit {
   }
 
 }
+// console.log(url);
+// let regex: RegExp = /(\d+)/g;
+// const id1: RegExpMatchArray | null = url.match(regex);
+// console.log(id1);
+// const id = id1?.join();
+// console.log(id);
+// this.router.navigate(['/starships/', id]);

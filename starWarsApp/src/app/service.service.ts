@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { StarShip } from './api-interface';
+import { findIndex } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,9 +23,10 @@ export class ServiceService {
     return this.http.get<StarShip>(path);
   }
 
-  getId(url: string) {
-    let regex: RegExp = /(\d+)/g;
-    const id: RegExpMatchArray | null = url.match(regex);
-    console.log(id);
-  }
+  // getId(url: string) {
+  //   let regex: RegExp = /(\d+)/g;
+  //   const id: RegExpMatchArray | null = url.match(regex);
+  //   const idjoin = id?.join();
+  //   console.log(idjoin);
+  // }
 }
