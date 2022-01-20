@@ -15,6 +15,7 @@ export class CardComponent implements OnInit {
   ship$!: Observable<StarShip>;
   id: number = 0;
   shipImage: string = '';
+  ship: StarShip | undefined;
 
 
   constructor(private route: ActivatedRoute, private service: ServiceService, private location: Location, private router: Router) { }
@@ -28,11 +29,6 @@ export class CardComponent implements OnInit {
   }
   noImage(): void {
     this.shipImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Star_Wars_Logo.svg/1200px-Star_Wars_Logo.svg.png';
-  }
-  goToPilots(pilots: any) {
-    console.log(pilots);
-    this.router.navigate(['/people/']);
-
   }
 
   goBackButton(): void {

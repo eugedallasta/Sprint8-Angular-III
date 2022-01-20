@@ -48,10 +48,8 @@ export class ListComponent implements OnInit {
   goToDetail(url: string) {
     console.log(url);
     const idInUrl: RegExpMatchArray | null = url.match(/(\d+)/g);
-    console.log(idInUrl);
     if (idInUrl) {
       const id: number = parseInt(idInUrl[0].replace('/', ''));
-      console.log(id);
       this.router.navigate(['/starships/', id]);
     }
   }

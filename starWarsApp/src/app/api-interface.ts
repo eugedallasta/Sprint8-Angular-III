@@ -19,7 +19,12 @@ export interface StarShip {
     url: string;
 }
 
-export interface List {
-    model: string;
+export interface Pilot {
+    birth_year: string;
     name: string;
+    eye_color: string;
+    hair_color: string;
+    mass: number;
+    height: number;
+    gender: string;
 }
