@@ -6,26 +6,41 @@
           [src]=[shipImage]
           class="card-img-top mx-auto img-fluid"
           [alt]="ship.name"
+          (error)="noImage()"
         />
-        <div class="card-body">
-          <h5 class="card-title">{{ ship.name }}</h5>
-          <small class="text-muted">{{ ship.created | date }}</small>
-          <br />
-          <small class="text-muted">Crew: {{ ship.crew }} people</small>
-          <br />
-          <small class="text-muted">Length: {{ ship.length }} ft</small>
-          <br />
-          <small class="text-muted">Class: {{ ship.starship_class }}</small>
-          <br>
-          <small class="text-muted">URL: {{ ship.url }}</small>
-          <br>
-          <a [routerLink]="['/pilot']">Pilots</a>
+        <h5 class="card-title text-muted ms-5 mt-3">{{ ship.name }}</h5>
+        <div class="card-body d-flex justify-content-between">
+          <div class="left">
+            <ul>
+              <li><small class="text-muted">Created: {{ ship.created | date }}</small></li>
+              <li><small class="text-muted">Crew: {{ ship.crew }} people</small></li>
+              <li><small class="text-muted">Length: {{ ship.length }} ft</small></li>
+              <li><small class="text-muted">Class: {{ ship.starship_class }}</small></li>
+            </ul>
+          </div>
+          <div class="right">
+            <ul>
+              <li><small class="text-muted">Passengers: {{ ship.passengers }}</small></li>
+              <li><small class="text-muted">Max atmosphering speed: {{ ship.max_atmosphering_speed }}</small></li>
+              <li><small class="text-muted">Manufacturer: {{ ship.manufacturer }}</small></li>
+              <button class="btn btn-outline-primary mt-1"(click)="goToPilots(ship.pilots)">Go to Pilots</button>
+            </ul>
+          </div>
         </div>
       </div>
-      <button class="btn btn-dark mb-5" (click)="goBackButton()">Go back</button>
+      <button class="btn btn-outline-light mb-5" (click)="goBackButton()">Go back</button>
     </div>
   </div>
 </div>
 
 
 
+          
+         
+          
+         
+          
+          
+          
+         
+        
