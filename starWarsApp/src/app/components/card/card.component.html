@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center" *ngIf="ship$ | async as ship">
-    <div class="col col-xs-12 col-sm-6 col-md-6 col-lg-9 justify-content-center">
+    <div class="col col-xs-12 col-sm-12 col-md-6 col-lg-9 justify-content-center">
       <div class="card" >
         <img
           [src]=[shipImage]
@@ -12,18 +12,18 @@
         <div class="card-body d-flex justify-content-between">
           <div class="left">
             <ul>
-              <li><small class="text-muted">Created: {{ ship.created | date }}</small></li>
-              <li><small class="text-muted">Crew: {{ ship.crew }} people</small></li>
-              <li><small class="text-muted">Length: {{ ship.length }} ft</small></li>
-              <li><small class="text-muted">Class: {{ ship.starship_class }}</small></li>
+              <li><small class="text-muted fs-6">Created: {{ ship.created | date }}</small></li>
+              <li><small class="text-muted fs-6">Crew: {{ ship.crew }} people</small></li>
+              <li><small class="text-muted fs-6">Length: {{ ship.length }} ft</small></li>
+              <li><small class="text-muted fs-6">Class: {{ ship.starship_class }}</small></li>
             </ul>
           </div>
           <div class="right">
             <ul>
-              <li><small class="text-muted">Passengers: {{ ship.passengers }}</small></li>
-              <li><small class="text-muted">Max atmosphering speed: {{ ship.max_atmosphering_speed }}</small></li>
-              <li><small class="text-muted">Manufacturer: {{ ship.manufacturer }}</small></li>
-              <li><small class="text-muted">Cost in credits U$S: {{ ship.cost_in_credits }}</small></li>
+              <li><small class="text-muted fs-6">Passengers: {{ ship.passengers }}</small></li>
+              <li><small class="text-muted fs-6">Max atmosphering speed: {{ ship.max_atmosphering_speed }}</small></li>
+              <li><small class="text-muted fs-6">Manufacturer: {{ ship.manufacturer }}</small></li>
+              <li><small class="text-muted fs-6">Cost in credits U$S: {{ ship.cost_in_credits }}</small></li>
             </ul>
           </div>
         </div>

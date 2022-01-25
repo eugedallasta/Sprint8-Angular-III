@@ -13,6 +13,8 @@ import { LoginComponent } from './components/login/login.component';
 import { PilotComponent } from './components/pilot/pilot.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     HttpClientModule,
     InfiniteScrollModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
 
 
   ],

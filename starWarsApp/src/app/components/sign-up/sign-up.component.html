@@ -24,6 +24,16 @@
           />
           <label for="floatingPassword">Password</label>
         </div>
+        <div class="form-floating mb-2">
+          <input
+            type="confirmPassword"
+            formControlName="confirmPassword"
+            class="form-control"
+            id="floatingPassword"
+            placeholder="Confirm Password"
+          />
+          <label for="floatingPassword">Confirm Password</label>
+        </div>
         <div *ngIf="emailField?.errors && emailField?.touched">
           <p *ngIf="emailField?.hasError('required')">
               <small class="text-danger">**e-mail required</small>
@@ -38,6 +48,14 @@
           </p>
            <p *ngIf="passwordField?.hasError('pattern')">
               <small class="text-danger">**Password requires at least 1 uppercase, 1 number and 1 special character</small>
+          </p>
+        </div>
+         <div *ngIf="confirmPasswordField?.errors && confirmPasswordField?.touched">
+          <p *ngIf="confirmPasswordField?.hasError('required')">
+              <small class="text-danger">**Confirm password required</small>
+          </p>
+           <p *ngIf="confirmPasswordField?.hasError('passwordMatch') && confirmPasswordField?.valid">
+              <small class="text-danger">**Password doesn't match</small>
           </p>
         </div>
         <button 

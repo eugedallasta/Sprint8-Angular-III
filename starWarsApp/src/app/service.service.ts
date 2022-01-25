@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { StarShip, Pilot } from './api-interface';
+import { StarShip, Pilot, User } from './api-interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -20,7 +20,6 @@ export class ServiceService {
       `${path}/?page=${page}`);
   }
 
-
   getStarship(id: number): Observable<any> {
     const path = `https://swapi.dev/api/starships/${id}`;
     return this.http.get<StarShip>(path);
@@ -33,7 +32,6 @@ export class ServiceService {
     },
       error => {
         console.log('Error en la petición');
-
       })
   }
 
@@ -47,4 +45,13 @@ export class ServiceService {
   getArrayPilots() {
     return this.pilots;
   }
+
+  authUser(user: User | null) {
+    let u;
+    if (localStorage.getItem('User')) {
+      u = JSON.parse(localStorage.getItem('User') || '{}')
+    }
+
+  }
+
 }
