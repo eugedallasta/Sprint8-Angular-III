@@ -46,12 +46,5 @@ export class ServiceService {
     return this.pilots;
   }
 
-  authUser(user: User | null) {
-    let u;
-    if (localStorage.getItem('User')) {
-      u = JSON.parse(localStorage.getItem('User') || '{}')
-    }
-
-  }
 
 }
