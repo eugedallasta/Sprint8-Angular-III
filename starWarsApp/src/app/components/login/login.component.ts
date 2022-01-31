@@ -1,6 +1,6 @@
-import { ServiceService } from 'src/app/service.service';
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,15 +9,33 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private service: ServiceService) { }
+  user = {
+    email: '',
+    password: ''
+
+  }
+
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
-
-  onLogin(loginForm: NgForm) {
-    console.log(loginForm.value);
-    const user = this.service.authUser(loginForm.value);
-    console.log(user);
-
+  onLogin() {
+    const { email, password } = this.user;
+    this.authService.login(email, password).then(res => {
+      console.log('se logeo --->', res);
+      this.router.navigate(['/starships']);
+    })
   }
+
+  onLoginGoogle() {
+    const { email, password } = this.user;
+    this.authService.loginWithGoogle(email, password).then(res => {
+      console.log('se logeo --->', res);
+      this.router.navigate(['/starships']);
+    })
+  }
+  onLogout() {
+    this.authService.logout();
+  }
+
 }

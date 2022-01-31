@@ -1,7 +1,6 @@
 import { Router } from '@angular/router';
-import { debounceTime } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -10,62 +9,31 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class SignUpComponent implements OnInit {
 
-  form!: FormGroup;
-
-  private readonly newProperty = localStorage.getItem('Users');
-
-  constructor(private fb: FormBuilder, private router: Router) { }
-
-  get emailField() {
-    return this.form.get('email')
-  }
-  get passwordField() {
-    return this.form.get('password')
-  }
-  get confirmPasswordField() {
-    return this.form.get('confirmPassword')
-  }
-  ngOnInit(): void {
-    this.buildForm();
+  usuarios: any;
+  usuario = {
+    email: '',
+    password: '',
+    name: ''
   }
 
-
-  private buildForm() {
-    this.form = this.fb.group({
-      password: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
-      ])),
-      confirmPassword: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
-      ])),
-      email: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-      ]))
-    }, { validators: this.passwordMatch });
-
-    this.form.valueChanges
-      .pipe(debounceTime(500))
-      .subscribe();
-  }
-  passwordMatch(form: FormGroup): Validators | null {
-    return form.get('password')?.value === form.get('confirmPassword')?.value ? null : { notmatched: true };
+  ngOnInit() {
   }
 
-  save(event: Event) {
-    event.preventDefault();
-    if (this.form.valid) {
-      const user: any = this.form.value;
-      localStorage.setItem('User', JSON.stringify(user));
-      alert('Te has registrado correctamente');
-      this.router.navigate(['/signup/']);
-      console.log(user);
-    } else {
-      this.form.markAllAsTouched();
-    }
+  constructor(private authService: AuthService,
+    private router: Router) { }
+
+  registrarse() {
+    const { email, password } = this.usuario;
+    this.authService.register(email, password).then(user => {
+      console.log("se registro: ", user);
+      this.router.navigate(['/starships']);
+    }).catch(err => {
+      console.log(err)
+    })
   }
+
+
+
 
 }
 

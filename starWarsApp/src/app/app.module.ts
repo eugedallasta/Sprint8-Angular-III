@@ -14,6 +14,9 @@ import { PilotComponent } from './components/pilot/pilot.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 @NgModule({
@@ -25,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     NavBarComponent,
     LoginComponent,
     PilotComponent,
-    SignUpComponent
+    SignUpComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,8 @@ import { FormsModule } from '@angular/forms';
     InfiniteScrollModule,
     RouterModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
 
 
   ],

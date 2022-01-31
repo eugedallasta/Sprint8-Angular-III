@@ -1,7 +1,7 @@
 <div class="container" >
   <div class="row">
-    <div class="col col-sm-10 col-md-8 mx-auto d-block">
-      <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+    <div class="col col-sm-10 col-md-6 mx-auto d-block">
+      <form>
         <h1 class="h3 mb-3 fw-normal text-white">Please log in</h1>
 
         <div class="form-floating mb-2">
@@ -11,31 +11,26 @@
             id="floatingInput"
             placeholder="name@example.com"
             required
-            ngModel name="userEmail"
+            [(ngModel)]="user.email" name="userEmail"
           />
-          <label for="floatingInput">Email address</label>
+          <label>Email address</label>
         </div>
-        <div class="form-floating mb-2">
+        <div class="form-floating mb-3">
           <input
             type="password"
             class="form-control"
-            id="floatingPassword"
             placeholder="Password"
             required
-            ngModel name="userPassword"
+            [(ngModel)]="user.password" name="userPassword"
           />
-          <label for="floatingPassword">Password</label>
+          <label>Password</label>
         </div>
-
-        <button 
-        class="w-100 btn btn-lg btn-primary mb-2" 
-        type="button" 
-        [disabled]="!loginForm.valid">
-          Log in
-        </button>
-          <button class="w-100 btn btn-lg btn-danger" type="button">
-          Cancel
-        </button>
+        <div class="d-flex justify-content-between mb-3">
+          <button class="btn btn-outline-primary" type="button" (click)="onLogin()">Log in</button>
+          <button class="btn btn-outline-primary" type="button" (click)="onLoginGoogle()">Log in with Google</button>
+           <button class="btn btn-outline-primary" type="button" (click)="onLogout()">Log out</button>
+        </div>
+        <label>Not register? <a [routerLink]="['/signup']">Sign up here</a></label>
       </form>
     </div>
   </div>

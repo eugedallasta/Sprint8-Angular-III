@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { PilotComponent } from './components/pilot/pilot.component';
 import { CardComponent } from './components/card/card.component';
@@ -8,12 +9,13 @@ import { ListComponent } from './components/list/list.component';
 import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'starships', component: ListComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'starships/:id', component: CardComponent },
   { path: 'people', component: PilotComponent },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

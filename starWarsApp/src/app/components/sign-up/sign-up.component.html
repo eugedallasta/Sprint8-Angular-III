@@ -1,69 +1,45 @@
 <div class="container" >
   <div class="row">
     <div class="col col-sm-10 col-md-8 mx-auto d-block">
-      <form [formGroup]="form" novalidate (ngSubmit)="save($event)">
+      <form>
         <h1 class="h3 mb-3 fw-normal text-white">First time? Please sign up</h1>
 
         <div class="form-floating mb-2">
           <input
-            type="email"
-            formControlName="email"
+            type="text"
             class="form-control"
-            id="floatingInput"
+            placeholder="Your name goes here"
+            [(ngModel)]="usuario.name" name="userName"
+          />
+          <label for="floatingInput">Name</label>
+        </div>
+
+        <div class="form-floating mb-2">
+          <input
+            type="email"
+            class="form-control"
             placeholder="name@example.com"
+            [(ngModel)]="usuario.email" name="userEmail"
           />
           <label for="floatingInput">Email address</label>
         </div>
+
         <div class="form-floating mb-2">
           <input
             type="password"
-            formControlName="password"
             class="form-control"
-            id="floatingPassword"
             placeholder="Password"
+            [(ngModel)]="usuario.password" name="userPassword"
           />
           <label for="floatingPassword">Password</label>
         </div>
-        <div class="form-floating mb-2">
-          <input
-            type="confirmPassword"
-            formControlName="confirmPassword"
-            class="form-control"
-            id="floatingPassword"
-            placeholder="Confirm Password"
-          />
-          <label for="floatingPassword">Confirm Password</label>
-        </div>
-        <div *ngIf="emailField?.errors && emailField?.touched">
-          <p *ngIf="emailField?.hasError('required')">
-              <small class="text-danger">**e-mail required</small>
-          </p>
-           <p *ngIf="emailField?.hasError('pattern')">
-              <small class="text-danger">**Valid e-mail required</small>
-          </p>
-        </div>
-        <div *ngIf="passwordField?.errors && passwordField?.touched">
-          <p *ngIf="passwordField?.hasError('required')">
-              <small class="text-danger">**Valid password required</small>
-          </p>
-           <p *ngIf="passwordField?.hasError('pattern')">
-              <small class="text-danger">**Password requires at least 1 uppercase, 1 number and 1 special character</small>
-          </p>
-        </div>
-         <div *ngIf="confirmPasswordField?.errors && confirmPasswordField?.touched">
-          <p *ngIf="confirmPasswordField?.hasError('required')">
-              <small class="text-danger">**Confirm password required</small>
-          </p>
-           <p *ngIf="confirmPasswordField?.hasError('passwordMatch') && confirmPasswordField?.valid">
-              <small class="text-danger">**Password doesn't match</small>
-          </p>
-        </div>
         <button 
-        [disabled]="form.invalid"
         class="w-100 btn btn-lg btn-dark" 
-        type="submit">
+        type="submit"
+        (click)="registrarse()">
           Sign up
         </button>
+         <label>Already register? <a [routerLink]="['/login']">Log in here</a></label>
       </form>
     </div>
   </div>
