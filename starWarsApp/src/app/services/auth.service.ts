@@ -25,6 +25,7 @@ export class AuthService {
       return await this.afAuth.signInWithEmailAndPassword(email, password);
     } catch (err) {
       console.log("error en login: ", err);
+      alert('Atention! wrong e-mail or password. You need to be registered for log in')
       return null;
     }
   }
@@ -35,6 +36,7 @@ export class AuthService {
       return await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     } catch (err) {
       console.log("error en login con google: ", err);
+      alert('Atention! user not founded. You need to be registered for log in')
       return null;
     }
   }
