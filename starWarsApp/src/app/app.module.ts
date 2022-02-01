@@ -29,7 +29,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     LoginComponent,
     PilotComponent,
     SignUpComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
