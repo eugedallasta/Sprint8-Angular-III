@@ -45,3 +45,7 @@ a{
      opacity: 1;
   }
 }
+
+main {
+  position: relative;
+}
