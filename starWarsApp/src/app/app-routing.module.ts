@@ -19,8 +19,14 @@ const routes: Routes = [
   },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent },
-  { path: 'starships/:id', component: CardComponent },
-  { path: 'people', component: PilotComponent },
+  {
+    path: 'starships/:id', component: CardComponent,
+    canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }
+  },
+  {
+    path: 'people', component: PilotComponent,
+    canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }
+  },
   { path: '**', component: NotFoundComponent },
 ];
 
