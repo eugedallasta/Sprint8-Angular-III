@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { StarShip, Pilot, User } from './api-interface';
+import { StarShip, Pilot, User, Actor, Film } from './api-interface';
 import { Observable } from 'rxjs';
+
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +11,11 @@ import { Observable } from 'rxjs';
 export class ServiceService {
 
   pilots: Pilot[] = [];
+  films: Film[] = [];
+  ships: StarShip[] = [];
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
   ) { }
 
   getDataFromApi(page = 1): Observable<any> {
@@ -20,9 +24,15 @@ export class ServiceService {
       `${path}/?page=${page}`);
   }
 
+  getActorsFromApi(page = 1): Observable<any> {
+    const path = 'https://swapi.dev/api/people/';
+    return this.http.get<Actor[]>(
+      `${path}/?page=${page}`);
+  }
+
   getStarship(id: number): Observable<any> {
     const path = `https://swapi.dev/api/starships/${id}`;
-    return this.http.get<StarShip>(path);
+    return this.http.get<StarShip>(path)
   }
 
   getPilot(id: number) {
@@ -45,6 +55,21 @@ export class ServiceService {
   getArrayPilots() {
     return this.pilots;
   }
+
+  // --------------------------------- PRUEBAS
+  getFilms(id: number) {
+    const path = `https://swapi.dev/api/films/${id}`;
+    this.http.get(path).subscribe((resp: any) => {
+      this.films.push(resp);
+    },
+      error => {
+        console.log('Error en la petición');
+      })
+  }
+  getArrayFilms() {
+    return this.films;
+  }
+
 
 
 }

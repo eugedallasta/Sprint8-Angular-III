@@ -18,6 +18,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ActorsComponent } from './components/actors/actors.component';
 
 
 
@@ -32,6 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PilotComponent,
     SignUpComponent,
     NotFoundComponent,
+    ActorsComponent,
   ],
   imports: [
     BrowserModule,

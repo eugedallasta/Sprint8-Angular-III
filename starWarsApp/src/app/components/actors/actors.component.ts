@@ -1,25 +1,26 @@
-import { StarShip } from './../../api-interface';
-import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { ServiceService } from 'src/app/service.service';
-import { take } from 'rxjs';
+import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
-
+import { Observable, take } from 'rxjs';
+import { Actor, Film, StarShip } from 'src/app/api-interface';
+import { ServiceService } from 'src/app/service.service';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  selector: 'app-actors',
+  templateUrl: './actors.component.html',
+  styleUrls: ['./actors.component.css']
 })
-export class ListComponent implements OnInit {
-
+export class ActorsComponent implements OnInit {
+  actorslist: Actor[] = [];
+  films: Film[] = [];
   shipslist: StarShip[] = [];
+
   next: null = null;
   private pageNum: number = 1;
   private hideScrollHeight: number = 200;
   private showScrollHeight: number = 400;
   showGoUpButton = false;
+  actor!: Actor;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -30,28 +31,17 @@ export class ListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getShips()
+    this.getActors();
+    this.getFilms();
   }
-
-  getShips(page = 1): void {
-    this.service.getDataFromApi(this.pageNum).pipe(take(1))
+  getActors(page = 1): void {
+    this.service.getActorsFromApi(this.pageNum).pipe(take(1))
       .subscribe((response: any) => {
         const { next, results } = response
-        this.shipslist = [...this.shipslist, ...results]
+        this.actorslist = [...this.actorslist, ...results]
         this.next = next
-
         console.log(results);
       });
-  }
-
-
-  goToDetail(url: string) {
-    console.log(url);
-    const idInUrl: RegExpMatchArray | null = url.match(/(\d+)/g);
-    if (idInUrl) {
-      const id: number = parseInt(idInUrl[0].replace('/', ''));
-      this.router.navigate(['/starships/', id]);
-    }
   }
 
   @HostListener('window:scroll', [])
@@ -67,7 +57,7 @@ export class ListComponent implements OnInit {
   onScrollDown(): void {
     if (this.next) {
       this.pageNum++;
-      this.getShips();
+      this.getActors();
     }
   }
 
@@ -75,5 +65,34 @@ export class ListComponent implements OnInit {
     this.document.body.scrollTop = 0; //Safari
     this.document.documentElement.scrollTop = 0;//Others
   }
+
+  // ------------------------PRUEBAS
+
+
+  getFilms(): void {
+    const regex = /(\d+)/g;
+    this.actor.films.map(film => {
+      const idInUrl: RegExpMatchArray | null = film.match(regex);
+      const id: number = parseInt(idInUrl![0]);
+      this.service.getFilms(id);
+    });
+    this.films = this.service.getArrayFilms();
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

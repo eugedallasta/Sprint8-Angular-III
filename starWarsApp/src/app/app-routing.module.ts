@@ -1,3 +1,4 @@
+import { ActorsComponent } from './components/actors/actors.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { PilotComponent } from './components/pilot/pilot.component';
@@ -15,6 +16,10 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent, data: { animation: 'HomePage' } },
   {
     path: 'starships', component: ListComponent,
+    canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }
+  },
+  {
+    path: 'actors', component: ActorsComponent,
     canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }
   },
   { path: 'login', component: LoginComponent },

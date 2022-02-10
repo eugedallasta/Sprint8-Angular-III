@@ -1,0 +1,39 @@
+<div class="container">
+<div class="row" infinite-scroll (scrolled)="onScrollDown()">
+    <div class="col " *ngFor="let actor of actorslist">
+       <div class="card mx-auto">
+           <div class="card-inner">
+               <div class="header">
+                    <h2 class="text-muted">{{actor.name}}</h2>
+                    <h4 class="text-muted">Height: {{actor.height}} cms</h4>
+                    <h4 class="text-muted">Mass: {{actor.mass}} kgs</h4>
+                    <h4 class="text-muted">Hair color: {{actor.hair_color}}</h4>
+                    <h4 class="text-muted">Skin color: {{actor.skin_color}}</h4>
+                    <h4 class="text-muted">Eyes color: {{actor.eye_color}}</h4>
+                    <h4 class="text-muted">Appears on: </h4>
+                    <div>
+                        <ul>
+                            <li class="text-primary" *ngFor="let film of actor.films">
+                            Epi. {{ film.episode_id }}: {{ film.title }}
+                            </li>
+                         </ul>
+                   </div>
+                    <h4 class="text-muted">Starships: {{actor.starships}}</h4>
+                    <div *ngFor="let ship of shipslist">
+                        <p>{{ship.name}} </p>
+                   </div>
+                   </div>
+
+                   
+               </div>
+           </div>
+       </div>
+    </div>
+</div>
+<button
+[ngClass]="'no-hidden'" 
+*ngIf="showGoUpButton"
+class="btn btn-dark"
+(click)="onScrollTop()">
+GO UP
+</button>
