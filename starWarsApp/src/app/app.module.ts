@@ -19,6 +19,7 @@ import { environment } from 'src/environments/environment';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActorsComponent } from './components/actors/actors.component';
+import { FilmsComponent } from './components/films/films.component';
 
 
 
@@ -34,6 +35,7 @@ import { ActorsComponent } from './components/actors/actors.component';
     SignUpComponent,
     NotFoundComponent,
     ActorsComponent,
+    FilmsComponent,
   ],
   imports: [
     BrowserModule,
