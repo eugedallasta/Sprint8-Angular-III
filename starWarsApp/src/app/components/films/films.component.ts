@@ -15,7 +15,7 @@ export class FilmsComponent implements OnInit {
   constructor(private service: ServiceService) { }
 
   ngOnInit(): void {
-    this.films = [];
+    this.service.deleteFilms();
     const regex = /(\d+)/g;
     this.ship.films.map(film => {
       const idInUrl: RegExpMatchArray | null = film.match(regex);
@@ -23,7 +23,6 @@ export class FilmsComponent implements OnInit {
       this.service.getFilms(id);
     });
     this.films = this.service.getArrayFilms();
-    console.log('this.pilots -->', this.films)
   }
 
 }

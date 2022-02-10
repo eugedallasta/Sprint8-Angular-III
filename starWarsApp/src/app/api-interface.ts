@@ -65,7 +65,7 @@ export interface Film {
     release_date: Date;
     characters: string[];
     planets: string[];
-    starships: string[];
+    starships: StarShip[];
     vehicles: string[];
     species: string[];
     created: Date;

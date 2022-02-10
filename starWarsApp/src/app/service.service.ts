@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { StarShip, Pilot, User, Actor, Film } from './api-interface';
 import { Observable } from 'rxjs';
 
-import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -56,7 +55,6 @@ export class ServiceService {
     return this.pilots;
   }
 
-  // --------------------------------- PRUEBAS
   getFilms(id: number) {
     const path = `https://swapi.dev/api/films/${id}`;
     this.http.get(path).subscribe((resp: any) => {
@@ -68,6 +66,25 @@ export class ServiceService {
   }
   getArrayFilms() {
     return this.films;
+  }
+  deleteFilms() {
+    let numReg: number = this.films.length;
+    if (numReg > 0) {
+      this.films.splice(0, numReg);
+    }
+  }
+  // --------------------------------- PRUEBAS
+  getShips(id: number) {
+    const path = `https://swapi.dev/api/starships/${id}`;
+    this.http.get(path).subscribe((resp: any) => {
+      this.ships.push(resp);
+    },
+      error => {
+        console.log('Error en la petición');
+      })
+  }
+  getArrayShips() {
+    return this.ships;
   }
 
 

@@ -4,13 +4,13 @@
        <div class="card mx-auto">
            <div class="card-inner">
                <div class="header">
-                    <h2 class="text-muted">{{actor.name}}</h2>
-                    <h4 class="text-muted">Height: {{actor.height}} cms</h4>
-                    <h4 class="text-muted">Mass: {{actor.mass}} kgs</h4>
-                    <h4 class="text-muted">Hair color: {{actor.hair_color}}</h4>
-                    <h4 class="text-muted">Skin color: {{actor.skin_color}}</h4>
-                    <h4 class="text-muted">Eyes color: {{actor.eye_color}}</h4>
-                    <h4 class="text-muted">Appears on: </h4>
+                    <h4 class="text-muted">{{actor.name}}</h4>
+                    <h6 class="text-muted">Height: {{actor.height}} cms</h6>
+                    <h6 class="text-muted">Mass: {{actor.mass}} kgs</h6>
+                    <h6 class="text-muted">Hair color: {{actor.hair_color}}</h6>
+                    <h6 class="text-muted">Skin color: {{actor.skin_color}}</h6>
+                    <h6 class="text-muted">Eyes color: {{actor.eye_color}}</h6>
+                    <h6 class="text-muted">Appears on: </h6>
                     <div>
                         <ul>
                             <li class="text-primary" *ngFor="let film of actor.films">
@@ -18,8 +18,10 @@
                             </li>
                          </ul>
                    </div>
-                    <h4 class="text-muted">Starships: {{actor.starships}}</h4>
-                    <div *ngFor="let ship of shipslist">
+                    <div *ngIf="actor.starships.length > 0">
+                        <h6 class="text-muted">Driven Starships: {{actor.starships}}</h6>
+                    </div>
+                    <div *ngFor="let ship of actor.starships">
                         <p>{{ship.name}} </p>
                    </div>
                    </div>
