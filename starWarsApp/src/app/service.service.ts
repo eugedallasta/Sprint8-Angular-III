@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { StarShip, Pilot, User, Actor, Film } from './api-interface';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 
 @Injectable({
@@ -86,6 +86,8 @@ export class ServiceService {
   getArrayShips() {
     return this.ships;
   }
+
+
 
 
 

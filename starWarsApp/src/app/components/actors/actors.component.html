@@ -11,22 +11,7 @@
                     <h6 class="text-muted">Skin color: {{actor.skin_color}}</h6>
                     <h6 class="text-muted">Eyes color: {{actor.eye_color}}</h6>
                     <h6 class="text-muted">Appears on: </h6>
-                    <div>
-                        <ul>
-                            <li class="text-primary" *ngFor="let film of actor.films">
-                            Epi. {{ film.episode_id }}: {{ film.title }}
-                            </li>
-                         </ul>
                    </div>
-                    <div *ngIf="actor.starships.length > 0">
-                        <h6 class="text-muted">Driven Starships: {{actor.starships}}</h6>
-                    </div>
-                    <div *ngFor="let ship of actor.starships">
-                        <p>{{ship.name}} </p>
-                   </div>
-                   </div>
-
-                   
                </div>
            </div>
        </div>
