@@ -15,14 +15,14 @@ export class FilmsComponent implements OnInit {
   constructor(private service: ServiceService) { }
 
   ngOnInit(): void {
-    this.service.deleteFilms();
     const regex = /(\d+)/g;
-    this.ship.films.map(film => {
-      const idInUrl: RegExpMatchArray | null = film.match(regex);
+    this.ship.films.map((ship) => {
+      const idInUrl: RegExpMatchArray | null = ship.match(regex);
       const id: number = parseInt(idInUrl![0]);
-      this.service.getFilms(id);
-    });
-    this.films = this.service.getArrayFilms();
+      this.service.getFilms(id).subscribe((resp) => {
+        this.films.push(resp)
+      });
+    })
   }
 
 }

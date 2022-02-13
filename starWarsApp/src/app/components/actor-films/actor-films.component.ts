@@ -19,7 +19,7 @@ export class ActorFilmsComponent implements OnInit {
     this.actor.films.map((film: Film) => {
       const idInUrl: RegExpMatchArray | null = film.match(regex);
       const id: number = parseInt(idInUrl![0]);
-      this.service.getActorFilms(id).subscribe((resp) => {
+      this.service.getFilms(id).subscribe((resp) => {
         this.movies.push(resp)
       });
     })
