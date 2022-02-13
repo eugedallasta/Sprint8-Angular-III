@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { StarShip, Pilot, User, Actor, Film } from './api-interface';
+import { StarShip, Pilot, User, Actor, Film, Planet } from './api-interface';
 import { Observable } from 'rxjs';
 
 
@@ -20,6 +20,11 @@ export class ServiceService {
   getActorsFromApi(page = 1): Observable<any> {
     const path = 'https://swapi.dev/api/people/';
     return this.http.get<Actor[]>(
+      `${path}/?page=${page}`);
+  }
+  getPlanetsFromApi(page = 1): Observable<any> {
+    const path = 'https://swapi.dev/api/planets/';
+    return this.http.get<Planet[]>(
       `${path}/?page=${page}`);
   }
   getStarship(id: number): Observable<any> {

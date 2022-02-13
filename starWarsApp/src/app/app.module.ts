@@ -22,6 +22,7 @@ import { ActorsComponent } from './components/actors/actors.component';
 import { FilmsComponent } from './components/films/films.component';
 import { ActorFilmsComponent } from './components/actor-films/actor-films.component';
 import { ActorStarshipsComponent } from './components/actor-starships/actor-starships.component';
+import { PlanetsComponent } from './components/planets/planets.component';
 
 
 
@@ -40,6 +41,7 @@ import { ActorStarshipsComponent } from './components/actor-starships/actor-star
     FilmsComponent,
     ActorFilmsComponent,
     ActorStarshipsComponent,
+    PlanetsComponent,
   ],
   imports: [
     BrowserModule,

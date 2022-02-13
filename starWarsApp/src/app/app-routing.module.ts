@@ -1,3 +1,4 @@
+import { PlanetsComponent } from './components/planets/planets.component';
 import { ActorsComponent } from './components/actors/actors.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
@@ -30,6 +31,10 @@ const routes: Routes = [
   },
   {
     path: 'people', component: PilotComponent,
+    canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }
+  },
+  {
+    path: 'planets', component: PlanetsComponent,
     canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }
   },
   { path: '**', component: NotFoundComponent },
