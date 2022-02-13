@@ -16,18 +16,13 @@ export class ActorFilmsComponent implements OnInit {
 
   ngOnInit(): void {
     const regex = /(\d+)/g;
-
-    console.log(this.actor.films);
-
-    this.service.getActorFilms(id)
-
     this.actor.films.map((film: Film) => {
       const idInUrl: RegExpMatchArray | null = film.match(regex);
       const id: number = parseInt(idInUrl![0]);
-      this.service.getFilms(id);
+      this.service.getActorFilms(id).subscribe((resp) => {
+        this.movies.push(resp)
+      });
     })
-    this.movies = this.service.getArrayActorFilms();
-    console.log('movies--->', this.movies);
   }
 
 }

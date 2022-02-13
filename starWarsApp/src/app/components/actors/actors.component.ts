@@ -20,13 +20,9 @@ export class ActorsComponent implements OnInit {
   private showScrollHeight: number = 400;
   showGoUpButton = false;
 
-
-
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private service: ServiceService,
-
-  ) { }
+    private service: ServiceService,) { }
 
   ngOnInit(): void {
     this.getActors();
@@ -39,7 +35,6 @@ export class ActorsComponent implements OnInit {
         this.next = next
       });
   }
-
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
     const yOffSet = window.pageYOffset;
@@ -49,20 +44,16 @@ export class ActorsComponent implements OnInit {
       this.showGoUpButton = false;
     }
   }
-
   onScrollDown(): void {
     if (this.next) {
       this.pageNum++;
       this.getActors();
     }
   }
-
   onScrollTop(): void {
     this.document.body.scrollTop = 0; //Safari
     this.document.documentElement.scrollTop = 0;//Others
   }
-
-
 }
 
 

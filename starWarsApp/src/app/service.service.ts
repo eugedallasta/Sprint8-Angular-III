@@ -80,23 +80,13 @@ export class ServiceService {
   }
 
 
-  // --------------------------------- PRUEBAS
+  // --------------------------------- ACTOR'S FILMS
 
   getActorFilms(id: number): Observable<any> {
     const path = `https://swapi.dev/api/films/${id}`;
     return this.http.get<Film>(path)
   }
 
-  getArrayActorFilms() {
-    return this.actorfilms;
-  }
-
-  deleteActorFilms() {
-    let numReg: number = this.actorfilms.length;
-    if (numReg > 0) {
-      this.actorfilms.splice(0, numReg);
-    }
-  }
 
 
 }

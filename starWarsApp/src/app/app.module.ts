@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActorsComponent } from './components/actors/actors.component';
 import { FilmsComponent } from './components/films/films.component';
 import { ActorFilmsComponent } from './components/actor-films/actor-films.component';
+import { ActorStarshipsComponent } from './components/actor-starships/actor-starships.component';
 
 
 
@@ -38,6 +39,7 @@ import { ActorFilmsComponent } from './components/actor-films/actor-films.compon
     ActorsComponent,
     FilmsComponent,
     ActorFilmsComponent,
+    ActorStarshipsComponent,
   ],
   imports: [
     BrowserModule,
