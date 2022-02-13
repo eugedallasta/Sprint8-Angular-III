@@ -23,17 +23,21 @@ export class ServiceService {
     return this.http.get<StarShip[]>(
       `${path}/?page=${page}`);
   }
-
   getActorsFromApi(page = 1): Observable<any> {
     const path = 'https://swapi.dev/api/people/';
     return this.http.get<Actor[]>(
       `${path}/?page=${page}`);
   }
-
   getStarship(id: number): Observable<any> {
     const path = `https://swapi.dev/api/starships/${id}`;
     return this.http.get<StarShip>(path)
   }
+  getFilms(id: number): Observable<any> {
+    const path = `https://swapi.dev/api/films/${id}`;
+    return this.http.get<Film>(path)
+  }
+
+// -----------PRUEBA ----------------
 
   getPilot(id: number) {
     const path = `https://swapi.dev/api/people/${id}`;
@@ -55,36 +59,6 @@ export class ServiceService {
 
   getArrayPilots() {
     return this.pilots;
-  }
-
-  getFilms(id: number) {
-    const path = `https://swapi.dev/api/films/${id}`;
-    this.http.get(path).subscribe((resp: any) => {
-      this.films.push(resp);
-      console.log(this.films);
-
-    },
-      error => {
-        console.log('Error en la petición');
-      })
-  }
-  getArrayFilms() {
-    return this.films;
-  }
-
-  deleteFilms() {
-    let numReg: number = this.films.length;
-    if (numReg > 0) {
-      this.films.splice(0, numReg);
-    }
-  }
-
-
-  // --------------------------------- ACTOR'S FILMS
-
-  getActorFilms(id: number): Observable<any> {
-    const path = `https://swapi.dev/api/films/${id}`;
-    return this.http.get<Film>(path)
   }
 
 
