@@ -20,6 +20,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActorsComponent } from './components/actors/actors.component';
 import { FilmsComponent } from './components/films/films.component';
+import { ActorFilmsComponent } from './components/actor-films/actor-films.component';
 
 
 
@@ -36,6 +37,7 @@ import { FilmsComponent } from './components/films/films.component';
     NotFoundComponent,
     ActorsComponent,
     FilmsComponent,
+    ActorFilmsComponent,
   ],
   imports: [
     BrowserModule,
