@@ -21,6 +21,7 @@ export interface StarShip {
 }
 
 export interface Pilot {
+    match(regex: RegExp): RegExpMatchArray | null;
     birth_year: string;
     name: string;
     eye_color: string;
