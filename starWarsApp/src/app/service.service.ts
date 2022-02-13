@@ -12,6 +12,7 @@ export class ServiceService {
   pilots: Pilot[] = [];
   films: Film[] = [];
   ships: StarShip[] = [];
+  actorfilms: Film[] = [];
 
   constructor(
     private http: HttpClient,
@@ -38,6 +39,7 @@ export class ServiceService {
     const path = `https://swapi.dev/api/people/${id}`;
     this.http.get(path).subscribe((resp: any) => {
       this.pilots.push(resp);
+
     },
       error => {
         console.log('Error en la petición');
@@ -59,6 +61,8 @@ export class ServiceService {
     const path = `https://swapi.dev/api/films/${id}`;
     this.http.get(path).subscribe((resp: any) => {
       this.films.push(resp);
+      console.log(this.films);
+
     },
       error => {
         console.log('Error en la petición');
@@ -67,28 +71,32 @@ export class ServiceService {
   getArrayFilms() {
     return this.films;
   }
+
   deleteFilms() {
     let numReg: number = this.films.length;
     if (numReg > 0) {
       this.films.splice(0, numReg);
     }
   }
+
+
   // --------------------------------- PRUEBAS
-  getShips(id: number) {
-    const path = `https://swapi.dev/api/starships/${id}`;
-    this.http.get(path).subscribe((resp: any) => {
-      this.ships.push(resp);
-    },
-      error => {
-        console.log('Error en la petición');
-      })
-  }
-  getArrayShips() {
-    return this.ships;
+
+  getActorFilms(id: number): Observable<any> {
+    const path = `https://swapi.dev/api/films/${id}`;
+    return this.http.get<Film>(path)
   }
 
+  getArrayActorFilms() {
+    return this.actorfilms;
+  }
 
-
+  deleteActorFilms() {
+    let numReg: number = this.actorfilms.length;
+    if (numReg > 0) {
+      this.actorfilms.splice(0, numReg);
+    }
+  }
 
 
 }
