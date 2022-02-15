@@ -23,6 +23,7 @@ import { FilmsComponent } from './components/films/films.component';
 import { ActorFilmsComponent } from './components/actor-films/actor-films.component';
 import { ActorStarshipsComponent } from './components/actor-starships/actor-starships.component';
 import { PlanetsComponent } from './components/planets/planets.component';
+import { PlanetCardComponent } from './components/planet-card/planet-card.component';
 
 
 
@@ -42,6 +43,7 @@ import { PlanetsComponent } from './components/planets/planets.component';
     ActorFilmsComponent,
     ActorStarshipsComponent,
     PlanetsComponent,
+    PlanetCardComponent,
   ],
   imports: [
     BrowserModule,

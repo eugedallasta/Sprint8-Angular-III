@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ListComponent } from './components/list/list.component';
 import { LoginComponent } from './components/login/login.component';
 import { AngularFireAuthGuard, redirectUnauthorizedTo } from '@angular/fire/compat/auth-guard';
+import { PlanetCardComponent } from './components/planet-card/planet-card.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
@@ -35,6 +36,10 @@ const routes: Routes = [
   },
   {
     path: 'planets', component: PlanetsComponent,
+    canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }
+  },
+  {
+    path: 'planet-card/:id', component: PlanetCardComponent,
     canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }
   },
   { path: '**', component: NotFoundComponent },

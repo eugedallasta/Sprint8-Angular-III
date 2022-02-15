@@ -15,7 +15,6 @@ export class CardComponent implements OnInit {
   ship$!: Observable<StarShip>;
   id: number = 0;
   shipImage: string = '';
-  ship: StarShip | undefined;
 
 
   constructor(private route: ActivatedRoute, private service: ServiceService, private location: Location, private router: Router) { }
