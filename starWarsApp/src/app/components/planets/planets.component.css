@@ -8,6 +8,8 @@
   overflow: hidden;
   transition: all 0.2 ease-in-out;
   cursor:text;
+  color: aliceblue;
+  
 }
 input:focus::placeholder {
   color: transparent;
