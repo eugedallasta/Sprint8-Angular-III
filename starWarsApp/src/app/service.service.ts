@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { StarShip, Pilot, Actor, Film } from './api-interface';
+import { StarShip, Pilot, Actor, Film, Planet } from './api-interface';
 import { Observable } from 'rxjs';
 
 
@@ -27,13 +27,23 @@ export class ServiceService {
     return this.http.get<Actor[]>(
       `${path}/?page=${page}`);
   }
-  getPilot(id: number) {
+  getPilot(id: number): Observable<Pilot> {
     const path = `https://swapi.dev/api/people/${id}`;
     return this.http.get<Pilot>(path);
   }
  // -------------Films----------
-  getFilms(id: number): Observable<any> {
+  getFilms(id: number): Observable<Film> {
     const path = `https://swapi.dev/api/films/${id}`;
-    return this.http.get<Film>(path)
+    return this.http.get<Film>(path);
+  }
+  // -------------Planets----------
+  getPlanetsFromApi(page = 1): Observable<any> {
+    const path = 'https://swapi.dev/api/planets/';
+    return this.http.get<StarShip[]>(
+      `${path}/?page=${page}`);
+  }
+  getPlanetById(id: number): Observable<Planet> {
+    const path = `https://swapi.dev/api/planets/${id}`;
+    return this.http.get<Planet>(path);
   }
 }

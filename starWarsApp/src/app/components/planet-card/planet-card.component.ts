@@ -18,7 +18,10 @@ export class PlanetCardComponent implements OnInit {
   constructor(private route: ActivatedRoute, private service: ServiceService, private location: Location, private router: Router) { }
 
   ngOnInit(): void {
-
+    this.route.params.subscribe((params: Params) => {
+      this.id = params['id'];
+      this.planet$ = this.service.getPlanetById(this.id);
+    })
   }
   goBackButton(): void {
     this.location.back();

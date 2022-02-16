@@ -5,15 +5,12 @@ import { ServiceService } from 'src/app/service.service';
 import { take } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-
   shipslist: StarShip[] = [];
   next: null = null;
   private pageNum: number = 1;

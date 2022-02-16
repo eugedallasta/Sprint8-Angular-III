@@ -1,6 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { take } from 'rxjs';
 import { Planet } from 'src/app/api-interface';
 import { ServiceService } from 'src/app/service.service';
 
@@ -11,7 +12,6 @@ import { ServiceService } from 'src/app/service.service';
 })
 export class PlanetsComponent implements OnInit {
   planets: Planet[] = [];
-
   next: null = null;
   private pageNum: number = 1;
   private hideScrollHeight: number = 200;
@@ -27,9 +27,26 @@ export class PlanetsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getPlanets();
   }
-  getPlanets() { }
-  goToDetail(url: string) { }
+  getPlanets() {
+    this.service.getPlanetsFromApi(this.pageNum).pipe(take(1))
+      .subscribe((response: any) => {
+        const { next, results } = response
+        this.planets = [...this.planets, ...results]
+        this.next = next
+        console.log(results);
+      });
+
+  }
+  goToPlanetDetail(url: string) {
+    console.log(url);
+    const idInUrl: RegExpMatchArray | null = url.match(/(\d+)/g);
+    if (idInUrl) {
+      const id: number = parseInt(idInUrl[0].replace('/', ''));
+      this.router.navigate(['planet-card/', id]);
+    }
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
