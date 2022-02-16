@@ -35,12 +35,10 @@ export class PlanetsComponent implements OnInit {
         const { next, results } = response
         this.planets = [...this.planets, ...results]
         this.next = next
-        console.log(results);
       });
 
   }
   goToPlanetDetail(url: string) {
-    console.log(url);
     const idInUrl: RegExpMatchArray | null = url.match(/(\d+)/g);
     if (idInUrl) {
       const id: number = parseInt(idInUrl[0].replace('/', ''));

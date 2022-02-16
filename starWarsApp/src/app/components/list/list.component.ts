@@ -37,13 +37,11 @@ export class ListComponent implements OnInit {
         this.shipslist = [...this.shipslist, ...results]
         this.next = next
 
-        console.log(results);
       });
   }
 
 
   goToDetail(url: string) {
-    console.log(url);
     const idInUrl: RegExpMatchArray | null = url.match(/(\d+)/g);
     if (idInUrl) {
       const id: number = parseInt(idInUrl[0].replace('/', ''));
