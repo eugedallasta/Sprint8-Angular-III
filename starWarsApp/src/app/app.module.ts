@@ -24,6 +24,7 @@ import { ActorFilmsComponent } from './components/actor-films/actor-films.compon
 import { ActorStarshipsComponent } from './components/actor-starships/actor-starships.component';
 import { PlanetsComponent } from './components/planets/planets.component';
 import { PlanetCardComponent } from './components/planet-card/planet-card.component';
+import { FilterPipe } from './filter.pipe';
 
 
 
@@ -44,6 +45,7 @@ import { PlanetCardComponent } from './components/planet-card/planet-card.compon
     ActorStarshipsComponent,
     PlanetsComponent,
     PlanetCardComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

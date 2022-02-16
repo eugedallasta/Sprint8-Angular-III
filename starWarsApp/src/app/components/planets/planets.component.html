@@ -4,11 +4,12 @@
     type="search" 
     class="search form-control form-control-lg mx-auto border border-light" 
     placeholder="Search for a planet here ..."
-    [(ngModel)]="searchValue"
+    [(ngModel)]="filterPlanet"
+    name="filterPlanet"
     >
    
 
-    <div class="col " *ngFor="let planet of planets">
+    <div class="col " *ngFor="let planet of planets | filter:filterPlanet">
        <div class="card mx-auto">
            <div class="card-inner">
                <div class="header">
