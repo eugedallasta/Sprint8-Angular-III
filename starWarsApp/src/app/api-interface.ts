@@ -31,11 +31,6 @@ export interface Pilot {
     gender: string;
 }
 
-export interface User {
-    email: string;
-    password: string;
-    confirmPassword: string;
-}
 
 export interface Actor {
     name: string;

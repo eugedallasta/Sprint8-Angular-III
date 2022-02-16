@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { take } from 'rxjs';
+import { take, Observable } from 'rxjs';
 import { Planet } from 'src/app/api-interface';
 import { ServiceService } from 'src/app/service.service';
 
@@ -12,6 +12,7 @@ import { ServiceService } from 'src/app/service.service';
 })
 export class PlanetsComponent implements OnInit {
   planets: Planet[] = [];
+  searchValue: string = '';
   next: null = null;
   private pageNum: number = 1;
   private hideScrollHeight: number = 200;
