@@ -1,4 +1,13 @@
 <div class="container">
+  
+  <ngx-spinner
+  bdColor="rgba(0,0,0,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
   <div class="row" infinite-scroll (scrolled)="onScrollDown()">
     <div class="col" *ngFor="let actor of actorslist">
       <div class="card card-inner mx-auto">

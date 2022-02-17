@@ -8,10 +8,10 @@ export class SpinnerService {
 
   constructor(private spinnerService: NgxSpinnerService) { }
 
-  llamarSpinner() {
+  public llamarSpinner() {
     this.spinnerService.show();
   }
-  detenerSpinner() {
+  public detenerSpinner() {
     this.spinnerService.hide();
   }
 

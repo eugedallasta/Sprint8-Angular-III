@@ -1,4 +1,12 @@
 <div class="container">
+
+<ngx-spinner
+  bdColor="rgba(0,0,0,0.8)"
+  template="<img src = './assets/star-wars.gif' />"
+ >
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
 <div class="row" infinite-scroll (scrolled)="onScrollDown()">
     <div class="col " *ngFor="let starship of shipslist">
        <div class="card mx-auto">

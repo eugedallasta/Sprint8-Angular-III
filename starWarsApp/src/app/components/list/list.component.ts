@@ -1,3 +1,4 @@
+import { SpinnerService } from './../../services/spinner.service';
 import { StarShip } from './../../api-interface';
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
@@ -22,12 +23,13 @@ export class ListComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document,
     private service: ServiceService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private spinnerService: SpinnerService,
 
   ) { }
 
   ngOnInit(): void {
-    this.getShips()
+    this.getShips();
   }
 
   getShips(page = 1): void {
