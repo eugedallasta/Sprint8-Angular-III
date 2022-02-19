@@ -12,7 +12,10 @@ export class SpinnerService {
     this.spinnerService.show();
   }
   public detenerSpinner() {
-    this.spinnerService.hide();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinnerService.hide();
+    }, 1500);
   }
 
 
